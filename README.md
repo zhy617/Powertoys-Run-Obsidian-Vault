@@ -17,7 +17,7 @@
 | **右键菜单** | 复制路径、在资源管理器中打开、在终端中打开（含快捷键提示） |
 
 默认 **激活词** 为 `}`（可在 PowerToys → PowerToys Run → 插件 中修改）。  
-若你同时安装 [Powertoys-Run-Cursor-Workspace](https://github.com/) 类插件且也使用 `}`，请在设置中为其中一个插件改用其它激活词，避免冲突。
+若你同时安装 [Powertoys-Run-Cursor-Workspace](https://github.com/zhy617/Powertoys-Run-Cursor-Workspace) 类插件且也使用 `}`，请在设置中为其中一个插件改用其它激活词，避免冲突。
 
 在 Run 中输入 `}` 后键入关键字即可按**库显示名称**筛选；无关键字时按标题排序浏览。
 
@@ -76,7 +76,7 @@ Get-ChildItem .\dist\* | ForEach-Object {
 
 ## 实现说明（与 Cursor 工作区插件的对照）
 
-- 结构上与 [Powertoys-Run-Cursor-Workspace](https://github.com/) 一致：`Main`（查询与上下文菜单）、`*Instances`（探测安装路径与图标缓存）、`*Api`（聚合列表）。
+- 结构上与 [Powertoys-Run-Cursor-Workspace](https://github.com/zhy617/Powertoys-Run-Cursor-Workspace) 一致：`Main`（查询与上下文菜单）、`*Instances`（探测安装路径与图标缓存）、`*Api`（聚合列表）。
 - 库列表不读 SQLite，仅解析 `obsidian.json`；打开动作使用 **`obsidian://` 协议**而非直接启动 exe 加参数。
 
 ---
