@@ -1,0 +1,1 @@
+- 实现 PowerToys Run 中快速打开 Obsidian Vault
