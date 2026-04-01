@@ -1,0 +1,25 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.PowerToys.Run.Plugin.ObsidianVaults", "src\Community.PowerToys.Run.Plugin.ObsidianVaults\Community.PowerToys.Run.Plugin.ObsidianVaults.csproj", "{C2D3E4F5-A6B7-8901-CDEF-123456789ABC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM64 = Debug|ARM64
+		Debug|x64 = Debug|x64
+		Release|ARM64 = Release|ARM64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2D3E4F5-A6B7-8901-CDEF-123456789ABC}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{C2D3E4F5-A6B7-8901-CDEF-123456789ABC}.Debug|ARM64.Build.0 = Debug|ARM64
+		{C2D3E4F5-A6B7-8901-CDEF-123456789ABC}.Debug|x64.ActiveCfg = Debug|x64
+		{C2D3E4F5-A6B7-8901-CDEF-123456789ABC}.Debug|x64.Build.0 = Debug|x64
+		{C2D3E4F5-A6B7-8901-CDEF-123456789ABC}.Release|ARM64.ActiveCfg = Release|ARM64
+		{C2D3E4F5-A6B7-8901-CDEF-123456789ABC}.Release|ARM64.Build.0 = Release|ARM64
+		{C2D3E4F5-A6B7-8901-CDEF-123456789ABC}.Release|x64.ActiveCfg = Release|x64
+		{C2D3E4F5-A6B7-8901-CDEF-123456789ABC}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+EndGlobal

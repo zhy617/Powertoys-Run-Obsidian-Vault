@@ -1,0 +1,14 @@
+{
+  "ID": "B8C0D9E1F2A345678901234567890CD",
+  "Disabled": false,
+  "ActionKeyword": "}",
+  "Name": "Obsidian 库",
+  "Author": "Powertoys-Run-Obsidian-Vault",
+  "Version": "1.0.0",
+  "Language": "csharp",
+  "Website": "https://github.com/",
+  "ExecuteFileName": "Community.PowerToys.Run.Plugin.ObsidianVaults.dll",
+  "IsGlobal": false,
+  "IcoPathDark": "Images\\obsidian.dark.png",
+  "IcoPathLight": "Images\\obsidian.light.png"
+}
