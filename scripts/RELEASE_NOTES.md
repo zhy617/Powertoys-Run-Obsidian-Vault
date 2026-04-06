@@ -1,1 +1,3 @@
-- 实现 PowerToys Run 中快速打开 Obsidian Vault
+# PowerToys Run Plugin Opening Obsidian Vault
+
+- Fix the bugs of author and version

@@ -1,10 +1,10 @@
 {
   "ID": "B8C0D9E1F2A345678901234567890CD",
   "Disabled": false,
-  "ActionKeyword": "}",
+  "ActionKeyword": "[",
   "Name": "Obsidian 库",
-  "Author": "Powertoys-Run-Obsidian-Vault",
-  "Version": "1.0.0",
+  "Author": "zhy617",
+  "Version": "1.0.2",
   "Language": "csharp",
   "Website": "https://github.com/",
   "ExecuteFileName": "Community.PowerToys.Run.Plugin.ObsidianVaults.dll",

@@ -16,10 +16,10 @@
 | **图标** | 自动发现 `Obsidian.exe` 并生成与 Cursor 工作区插件类似的叠加图标；未安装 Obsidian 时仍列出库，使用插件自带图标 |
 | **右键菜单** | 复制路径、在资源管理器中打开、在终端中打开（含快捷键提示） |
 
-默认 **激活词** 为 `}`（可在 PowerToys → PowerToys Run → 插件 中修改）。  
-若你同时安装 [Powertoys-Run-Cursor-Workspace](https://github.com/zhy617/Powertoys-Run-Cursor-Workspace) 类插件且也使用 `}`，请在设置中为其中一个插件改用其它激活词，避免冲突。
+默认 **激活词** 为 `[`（可在 PowerToys → PowerToys Run → 插件 中修改）。  
+若你同时安装 [Powertoys-Run-Cursor-Workspace](https://github.com/zhy617/Powertoys-Run-Cursor-Workspace) 类插件且也使用 `[`，请在设置中为其中一个插件改用其它激活词，避免冲突。
 
-在 Run 中输入 `}` 后键入关键字即可按**库显示名称**筛选；无关键字时按标题排序浏览。
+在 Run 中输入 `[` 后键入关键字即可按**库显示名称**筛选；无关键字时按标题排序浏览。
 
 ---
 

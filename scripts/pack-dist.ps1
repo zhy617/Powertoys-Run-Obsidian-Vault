@@ -1,8 +1,11 @@
 # Pack x64 and ARM64 Release outputs into dist/ as ObsidianVaults-v{version}-win-{rid}.zip
+# Syncs plugin.json "Version" when you pass -Version (otherwise reads version from plugin.json).
 # Usage: .\scripts\pack-dist.ps1 -Version 1.0.0
 #        .\scripts\pack-dist.ps1 -Version v2.3.4 -Build
+#        .\scripts\pack-dist.ps1 -Build   # uses Version from plugin.json
 param(
-    [Parameter(Mandatory = $true, Position = 0)]
+    [Parameter(Position = 0)]
+    [AllowEmptyString()]
     [string] $Version,
 
     [switch] $Build
@@ -12,11 +15,50 @@ $ErrorActionPreference = 'Stop'
 
 $RepoRoot = Split-Path -Parent $PSScriptRoot
 $PluginRoot = Join-Path $RepoRoot 'src\Community.PowerToys.Run.Plugin.ObsidianVaults'
+$PluginJsonPath = Join-Path $PluginRoot 'plugin.json'
 $DistDir = Join-Path $RepoRoot 'dist'
 
-$Version = $Version.Trim().TrimStart('v')
+function Set-PluginJsonVersion {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string] $Path,
+
+        [Parameter(Mandatory = $true)]
+        [string] $NewVersion
+    )
+    if ($NewVersion -match '["\r\n]') {
+        throw 'Version must not contain quotes or line breaks.'
+    }
+    $content = Get-Content -LiteralPath $Path -Raw -Encoding UTF8
+    $pattern = '("Version"\s*:\s*")[^"]*(")'
+    if ($content -notmatch $pattern) {
+        throw "Could not find Version field in: $Path"
+    }
+    $updated = [regex]::Replace($content, $pattern, {
+            param($m)
+            return $m.Groups[1].Value + $NewVersion + $m.Groups[2].Value
+        })
+    $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+    [System.IO.File]::WriteAllText((Resolve-Path -LiteralPath $Path), $updated, $utf8NoBom)
+}
+
+$syncPluginJsonToRelease = $false
 if ([string]::IsNullOrWhiteSpace($Version)) {
-    throw 'Version must not be empty.'
+    $plugin = Get-Content -LiteralPath $PluginJsonPath -Raw -Encoding UTF8 | ConvertFrom-Json
+    $Version = $plugin.Version.ToString().Trim().TrimStart('v')
+    if ([string]::IsNullOrWhiteSpace($Version)) {
+        throw 'Version in plugin.json is empty.'
+    }
+}
+else {
+    $Version = $Version.Trim().TrimStart('v')
+    if ([string]::IsNullOrWhiteSpace($Version)) {
+        throw 'Version must not be empty.'
+    }
+    Set-PluginJsonVersion -Path $PluginJsonPath -NewVersion $Version
+    if (-not $Build) {
+        $syncPluginJsonToRelease = $true
+    }
 }
 
 if ($Build) {
@@ -51,6 +93,9 @@ foreach ($p in $pairs) {
     $items = @(Get-ChildItem -LiteralPath $releaseDir -Force)
     if ($items.Count -eq 0) {
         throw "Release folder is empty: $releaseDir"
+    }
+    if ($syncPluginJsonToRelease) {
+        Copy-Item -LiteralPath $PluginJsonPath -Destination $releaseDir -Force
     }
 
     $zipName = "ObsidianVaults-v$Version-$($p.Rid).zip"
